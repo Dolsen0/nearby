@@ -6,12 +6,13 @@ with open('apiKey.json') as api_key_json:
     api_key = json.load(api_key_json)['api_key']
 
 # Set the API endpoint and parameters
+#sort by rating, distance, or best match
 api_endpoint = 'https://api.yelp.com/v3/businesses/search'
 params = {
     'location': '33065',
-    'term': 'Italian',
+    'term': 'Burger',
     'limit': 10,
-    'sort_by': 'rating'
+    'sort_by': 'best_match'
 }
 
 # Set the headers with the API key
