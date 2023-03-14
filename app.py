@@ -9,7 +9,7 @@ with open('apiKey.json') as api_key_json:
 api_endpoint = 'https://api.yelp.com/v3/businesses/search'
 params = {
     'location': '33065',
-    'term': 'cuban',
+    'term': 'Italian',
     'limit': 10,
     'sort_by': 'rating'
 }
@@ -26,5 +26,5 @@ response = requests.get(api_endpoint, headers=headers, params=params)
 businesses = json.loads(response.text)
 
 # Print the names of the businesses
-for business in businesses['businesses']:
-    print(business['name'])
+for i, business in enumerate(businesses['businesses']):
+    print(f"{i+1}: {business['name']} \nRating: {business['rating']} stars \nYelp Link:\n{business['url']} \n")
